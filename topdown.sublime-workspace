@@ -1,0 +1,348 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"coroutine",
+				"coroutine.yield	(...)"
+			],
+			[
+				"Snake",
+				"SnakeEntity"
+			],
+			[
+				"control",
+				"controlMenu"
+			],
+			[
+				"player",
+				"player1Control"
+			],
+			[
+				"enemySpri",
+				"enemySprite"
+			],
+			[
+				"enemySp",
+				"enemySprites"
+			],
+			[
+				"enemy",
+				"enemySprite"
+			],
+			[
+				"xInv",
+				"xInvEntry"
+			],
+			[
+				"u_",
+				"u_0"
+			],
+			[
+				"joy",
+				"love.joystick.getJoystickCount"
+			],
+			[
+				"obj",
+				"objectsMap"
+			],
+			[
+				"object",
+				"objectTiles"
+			],
+			[
+				"extract",
+				"extractMarkFromFrame"
+			],
+			[
+				"Mark",
+				"markImage"
+			],
+			[
+				"playerSp",
+				"playerSprites"
+			],
+			[
+				"joystics",
+				"love.joystick.getJoysticks"
+			],
+			[
+				"animation",
+				"animationFrame"
+			],
+			[
+				"change",
+				"changeAction"
+			],
+			[
+				"attack",
+				"attackAnimation"
+			],
+			[
+				"update",
+				"updateAnimation"
+			],
+			[
+				"sca",
+				"love.graphics.scale"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "main.lua",
+			"settings":
+			{
+				"buffer_size": 279,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Map.lua",
+			"settings":
+			{
+				"buffer_size": 9472,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/User/LuaLove.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"package control insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/pilo/src/PLCGame/TopDown/Main.lua",
+		"/home/pilo/src/PLCGame/SwordGame/Game/PlayerEntity.lua",
+		"/home/pilo/src/PLCGame/SwordGame/Game/Enemies.lua",
+		"/home/pilo/src/PLCGame/SwordGame/Game/Entity.lua",
+		"/home/pilo/src/PLCGame/SwordGame/Game/testlevel.lua",
+		"/home/pilo/src/PLCGame/SwordGame/Game/Map.lua",
+		"/home/pilo/src/PLCGame/SwordGame/Game/PlayerControl.lua",
+		"/home/pilo/src/PLCGame/SwordGame/Game/main.lua",
+		"/home/pilo/src/PLCGame/SwordGame/Game/EnemyStates.lua",
+		"/home/pilo/src/PLCGame/SwordGame/Game/PlayerStates.lua",
+		"/home/pilo/src/PLCGame/SwordGame/Game/list.lua",
+		"/home/pilo/src/PLCGame/SwordGame/Game/SpriteFrame.lua",
+		"/home/pilo/src/PLCGame/SwordGame/Game/PlayerSprites.lua",
+		"/home/pilo/src/Game/Game/main.lua",
+		"/home/pilo/src/Game/Game/Map.lua",
+		"/home/pilo/src/Game/Game/PlayerSprites.lua",
+		"/home/pilo/src/Game/Game/SpriteFrame.lua",
+		"/home/pilo/src/Game/Game/testlevel.lua",
+		"/home/pilo/src/Game/Game/test_font.png",
+		"/home/pilo/src/Game/Game/test_font.xcf",
+		"/home/pilo/.config/sublime-text-2/Packages/User/LuaLove.sublime-build",
+		"/home/pilo/src/Game/Game/game.sublime-workspace",
+		"/C/Users/pilo/Documents/Game/main.lua",
+		"/C/Users/pilo/Documents/Game/testlevel.lua",
+		"/C/Users/pilo/AppData/Roaming/Sublime Text 2/Packages/User/LuaLove.sublime-build",
+		"/C/Users/pilo/Documents/Game/RunLove.sublime-build",
+		"/C/Users/pilo/Documents/Game/game.sublime-project",
+		"/C/Users/pilo/Documents/Game/build.sublime-build"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"PlayerStates",
+			"EnemyStates",
+			"Enemy",
+			"EnemySt",
+			"EnemyStates",
+			"currentState",
+			"playerSprites",
+			"GetAABB",
+			"jump",
+			"AABBCast",
+			"distanceDo",
+			"distanceDown",
+			"ydis",
+			"joystick",
+			"getDelta",
+			"startX",
+			"end",
+			"ret",
+			"channel"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"PlayerEntity",
+			"SnakeEntity",
+			"getAABB"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "main.lua",
+					"settings":
+					{
+						"buffer_size": 279,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								105,
+								105
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Map.lua",
+					"settings":
+					{
+						"buffer_size": 9472,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2028,
+								2028
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2613.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 175.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/home/pilo/src/PLCGame/SwordGame/Game/SwordGame.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 213.0,
+	"status_bar_visible": true
+}
