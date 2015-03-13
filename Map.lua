@@ -1,3 +1,5 @@
+require "PriorityQueue"
+
 Map = {}
 Map.__index = Map
 
@@ -344,4 +346,114 @@ function Map:AABBCast(aabb, v, tileType)
 	--print("cast result", u, v[0], v[1])
 
 	return u, normal
+end
+
+function Map:PointIdx(p)
+	return p.y * self.width + p.x
+end
+
+function Map:IdxPoint(idx) 
+	local x = idx % self.width
+	local y = (idx - x) / self.width
+	return {x = x, y = y}
+end
+
+function Map:TileNeightbors(tile_idx)
+	local neightbors = {}
+
+	-- up
+	if tile_idx - self.width >= 0 and self.backgroundTiles.tiles[self.backgroundMap[tile_idx - self.width]].collision == nil then
+		table.insert(neightbors, tile_idx - self.width)
+	end
+
+	-- bottom
+	if tile_idx + self.width < self.width * self.height and self.backgroundTiles.tiles[self.backgroundMap[tile_idx + self.width]].collision == nil then
+		table.insert(neightbors, tile_idx + self.width)
+	end
+
+	-- left
+	if tile_idx - 1 >= 0 and self.backgroundTiles.tiles[self.backgroundMap[tile_idx - 1]].collision == nil then
+		table.insert(neightbors, tile_idx - 1)
+	end
+
+	-- right
+	if tile_idx + 1 < width and self.backgroundTiles.tiles[self.backgroundMap[tile_idx + 1]].collision == nil then
+		table.insert(neightbors, tile_idx + 1)
+	end
+
+	return neightbors
+end
+
+function Map:heuristic(a, b)
+	local pA = self:IdxPoint(a)
+	local pB = self:IdxPoint(b)
+
+	return math.max(math.abs(pA.x - pB.x), math.abs(pA.y - pB.y))
+	--return 0.0
+end
+
+function Map:AStar(start, goal)
+	local closedSet = {}
+	local q = PriorityQueue.new()
+	local came_from = {}
+	local score = {}
+
+	local start_idx = self:PointIdx(start)
+	local goal_idx = self:PointIdx(goal)
+
+	local best = {idx = start_idx, score = self:heuristic(start_idx, goal_idx)}
+
+	score[start_idx] = 0
+	q:push(start_idx, 0)
+	came_from[start_idx] = -1
+
+	local count = 0
+
+	while #q > 0 do
+		local current, p = q:pop()
+		local currentPoint = self:IdxPoint(current)
+		--print("current :", currentPoint.x, currentPoint.y, p)
+
+		local s = self:heuristic(goal_idx, current)
+		if s < best.score then
+			best.idx = current
+			best.score = self:heuristic(goal_idx, current)
+		end
+
+		if current == goal_idx then
+			break
+		end
+
+		-- add to closed set
+		closedSet[current] = true
+
+		local neightbors = self:TileNeightbors(current)
+		for key,n in pairs(neightbors) do
+			if closedSet[n] == nil then
+				local newScore = score[current] + 1 -- 1 is the disantce between node
+
+				if came_from[n] == nil or newScore < score[n] then
+					came_from[n] = current
+					score[n] = newScore
+					--print(score[n], self:heuristic(goal_idx, n))
+					q:push(n, score[n] + self:heuristic(goal_idx, n))
+				end
+			end
+		end
+
+		count = count + 1
+	end
+
+
+	-- return the path
+	local path = {}
+	local idx = best.idx
+	while idx ~= -1 do
+		table.insert(path, self:IdxPoint(idx))
+		idx = came_from[idx]
+	end
+
+	print(#path, count)
+
+	return path, best.idx == goal_idx
 end

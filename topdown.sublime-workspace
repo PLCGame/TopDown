@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"gra",
+				"love.graphics.draw"
+			],
+			[
 				"coroutine",
 				"coroutine.yield	(...)"
 			],
@@ -95,7 +99,7 @@
 			"file": "main.lua",
 			"settings":
 			{
-				"buffer_size": 279,
+				"buffer_size": 802,
 				"line_ending": "Unix"
 			}
 		},
@@ -103,8 +107,32 @@
 			"file": "Map.lua",
 			"settings":
 			{
-				"buffer_size": 9472,
+				"buffer_size": 12111,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "PriorityQueue.lua",
+			"settings":
+			{
+				"buffer_size": 1613,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "SpriteFrame.lua",
+			"settings":
+			{
+				"buffer_size": 2925,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "list.lua",
+			"settings":
+			{
+				"buffer_size": 2100,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -136,6 +164,8 @@
 	},
 	"file_history":
 	[
+		"/home/pilo/src/PLCGame/TopDown/list.lua",
+		"/home/pilo/src/PLCGame/TopDown/PriorityQueue.lua",
 		"/home/pilo/src/PLCGame/TopDown/Main.lua",
 		"/home/pilo/src/PLCGame/SwordGame/Game/PlayerEntity.lua",
 		"/home/pilo/src/PLCGame/SwordGame/Game/Enemies.lua",
@@ -181,6 +211,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"return",
+			"width",
 			"PlayerStates",
 			"EnemyStates",
 			"Enemy",
@@ -228,15 +260,15 @@
 					"file": "main.lua",
 					"settings":
 					{
-						"buffer_size": 279,
+						"buffer_size": 802,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								105,
-								105
+								543,
+								543
 							]
 						],
 						"settings":
@@ -254,15 +286,43 @@
 					"file": "Map.lua",
 					"settings":
 					{
-						"buffer_size": 9472,
+						"buffer_size": 12111,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2028,
-								2028
+								11744,
+								11744
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5060.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "PriorityQueue.lua",
+					"settings":
+					{
+						"buffer_size": 1613,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								286,
+								286
 							]
 						],
 						"settings":
@@ -271,7 +331,61 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2613.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "SpriteFrame.lua",
+					"settings":
+					{
+						"buffer_size": 2925,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2509,
+								2509
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1131.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "list.lua",
+					"settings":
+					{
+						"buffer_size": 2100,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -312,7 +426,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 175.0
+		"height": 101.0
 	},
 	"replace":
 	{
