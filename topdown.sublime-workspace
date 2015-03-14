@@ -99,7 +99,7 @@
 			"file": "main.lua",
 			"settings":
 			{
-				"buffer_size": 802,
+				"buffer_size": 983,
 				"line_ending": "Unix"
 			}
 		},
@@ -107,7 +107,7 @@
 			"file": "Map.lua",
 			"settings":
 			{
-				"buffer_size": 12111,
+				"buffer_size": 12239,
 				"line_ending": "Windows"
 			}
 		},
@@ -252,7 +252,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -260,15 +260,15 @@
 					"file": "main.lua",
 					"settings":
 					{
-						"buffer_size": 802,
+						"buffer_size": 983,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								543,
-								543
+								884,
+								884
 							]
 						],
 						"settings":
@@ -286,15 +286,15 @@
 					"file": "Map.lua",
 					"settings":
 					{
-						"buffer_size": 12111,
+						"buffer_size": 12239,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11744,
-								11744
+								11844,
+								11844
 							]
 						],
 						"settings":
@@ -304,7 +304,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 5060.0,
+						"translation.y": 5216.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

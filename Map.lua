@@ -360,24 +360,25 @@ end
 
 function Map:TileNeightbors(tile_idx)
 	local neightbors = {}
+	local p = self:IdxPoint(tile_idx)
 
 	-- up
-	if tile_idx - self.width >= 0 and self.backgroundTiles.tiles[self.backgroundMap[tile_idx - self.width]].collision == nil then
+	if p.y - 1 >= 0 and self.backgroundTiles.tiles[self.backgroundMap[tile_idx - self.width]].collision == nil then
 		table.insert(neightbors, tile_idx - self.width)
 	end
 
 	-- bottom
-	if tile_idx + self.width < self.width * self.height and self.backgroundTiles.tiles[self.backgroundMap[tile_idx + self.width]].collision == nil then
+	if p.y + 1 < self.height and self.backgroundTiles.tiles[self.backgroundMap[tile_idx + self.width]].collision == nil then
 		table.insert(neightbors, tile_idx + self.width)
 	end
 
 	-- left
-	if tile_idx - 1 >= 0 and self.backgroundTiles.tiles[self.backgroundMap[tile_idx - 1]].collision == nil then
+	if p.x - 1 >= 0 and self.backgroundTiles.tiles[self.backgroundMap[tile_idx - 1]].collision == nil then
 		table.insert(neightbors, tile_idx - 1)
 	end
 
 	-- right
-	if tile_idx + 1 < width and self.backgroundTiles.tiles[self.backgroundMap[tile_idx + 1]].collision == nil then
+	if p.x + 1 < self.width and self.backgroundTiles.tiles[self.backgroundMap[tile_idx + 1]].collision == nil then
 		table.insert(neightbors, tile_idx + 1)
 	end
 
@@ -388,7 +389,8 @@ function Map:heuristic(a, b)
 	local pA = self:IdxPoint(a)
 	local pB = self:IdxPoint(b)
 
-	return math.max(math.abs(pA.x - pB.x), math.abs(pA.y - pB.y))
+	--return math.max(math.abs(pA.x - pB.x), math.abs(pA.y - pB.y))
+	return math.abs(pA.x - pB.x) + math.abs(pA.y - pB.y)
 	--return 0.0
 end
 
@@ -409,10 +411,13 @@ function Map:AStar(start, goal)
 
 	local count = 0
 
+	search = {}
+
 	while #q > 0 do
 		local current, p = q:pop()
 		local currentPoint = self:IdxPoint(current)
 		--print("current :", currentPoint.x, currentPoint.y, p)
+		table.insert(search, {pos = currentPoint, priority = p})
 
 		local s = self:heuristic(goal_idx, current)
 		if s < best.score then
@@ -430,7 +435,7 @@ function Map:AStar(start, goal)
 		local neightbors = self:TileNeightbors(current)
 		for key,n in pairs(neightbors) do
 			if closedSet[n] == nil then
-				local newScore = score[current] + 1 -- 1 is the disantce between node
+				local newScore = score[current] + 1.0 -- 1 is the disantce between node
 
 				if came_from[n] == nil or newScore < score[n] then
 					came_from[n] = current
@@ -455,5 +460,5 @@ function Map:AStar(start, goal)
 
 	print(#path, count)
 
-	return path, best.idx == goal_idx
+	return path, best.idx == goal_idx, search
 end
