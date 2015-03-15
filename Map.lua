@@ -98,12 +98,15 @@ function loadTileset(data)
 
 	-- loop trough properties
 	for i, tile in ipairs(data.tiles) do
-		--tileset.tiles[tile.id].collision = tonumber(tile.properties["collision"])
-
 		if tile.properties ~= nil then
-			tileset.tiles[tile.id].type = tile.properties["type"]
+			tileset.tiles[tile.id].type = tile.properties["type"] -- type
+			tileset.tiles[tile.id].cost = tile.properties["cost"] -- cost
 		end
 
+		-- default property values
+		if tileset.tiles[tile.id].cost == nil then tileset.tiles[tile.id].cost = 1 end
+		print(tileset.tiles[tile.id].cost)
+		print(i)
 		-- use Tiled tile editor
 		-- start with nil, no collision
 		tileset.tiles[tile.id].collision = nil
@@ -382,7 +385,21 @@ function Map:TileNeightbors(tile_idx)
 		table.insert(neightbors, tile_idx + 1)
 	end
 
+	if (p.x + p.y) % 2 == 1 then
+		-- reverse the order of neightbors
+		local r = {}
+		while #neightbors > 0 do
+			table.insert(r, table.remove(neightbors))
+		end
+
+		neightbors = r
+	end
+
 	return neightbors
+end
+
+function Map:tileCost(tile_idx)
+	return self.backgroundTiles.tiles[self.backgroundMap[tile_idx]].cost
 end
 
 function Map:heuristic(a, b)
@@ -435,7 +452,7 @@ function Map:AStar(start, goal)
 		local neightbors = self:TileNeightbors(current)
 		for key,n in pairs(neightbors) do
 			if closedSet[n] == nil then
-				local newScore = score[current] + 1.0 -- 1 is the disantce between node
+				local newScore = score[current] + self:tileCost(n)
 
 				if came_from[n] == nil or newScore < score[n] then
 					came_from[n] = current
@@ -458,7 +475,7 @@ function Map:AStar(start, goal)
 		idx = came_from[idx]
 	end
 
-	print(#path, count)
+	--print(#path, count)
 
 	return path, best.idx == goal_idx, search
 end

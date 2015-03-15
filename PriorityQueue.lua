@@ -16,7 +16,7 @@ function PriorityQueue:push(obj, priority)
 	local idx = #self -- position of the new item
 	local parent = (idx - idx%2) / 2
 
-	while idx > 1 and self[idx].priority < self[parent].priority do 
+	while idx > 1 and self[idx].priority <= self[parent].priority do 
 		-- swap item
 		self[idx], self[parent] = self[parent], self[idx]
 		idx = parent
@@ -48,14 +48,14 @@ function PriorityQueue:pop()
 		local c2 = idx * 2 + 1
 
 		while c2 <= #self and not (self[idx].priority < self[c1].priority and self[idx].priority < self[c2].priority) do
-			if self[c1].priority > self[c2].priority and self[idx].priority >= self[c2].priority then
-				-- swap
-				self[idx], self[c2] = self[c2], self[idx]
-				idx = c2
-			elseif self[idx].priority >= self[c1].priority then
+			if self[c1].priority < self[c2].priority and self[idx].priority >= self[c1].priority then
 				-- swap
 				self[idx], self[c1] = self[c1], self[idx]
 				idx = c1
+			elseif self[idx].priority >= self[c2].priority then
+				-- swap
+				self[idx], self[c2] = self[c2], self[idx]
+				idx = c2
 			end
 
 			c1 = idx * 2

@@ -107,7 +107,7 @@
 			"file": "Map.lua",
 			"settings":
 			{
-				"buffer_size": 12239,
+				"buffer_size": 12663,
 				"line_ending": "Windows"
 			}
 		},
@@ -115,7 +115,7 @@
 			"file": "PriorityQueue.lua",
 			"settings":
 			{
-				"buffer_size": 1613,
+				"buffer_size": 1614,
 				"line_ending": "Unix"
 			}
 		},
@@ -133,6 +133,14 @@
 			{
 				"buffer_size": 2100,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "level0.lua",
+			"settings":
+			{
+				"buffer_size": 2989,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -252,7 +260,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -267,13 +275,14 @@
 						"selection":
 						[
 							[
-								884,
-								884
+								855,
+								855
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Lua/Lua.tmLanguage"
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -286,15 +295,15 @@
 					"file": "Map.lua",
 					"settings":
 					{
-						"buffer_size": 12239,
+						"buffer_size": 12663,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11844,
-								11844
+								2354,
+								2354
 							]
 						],
 						"settings":
@@ -304,7 +313,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 5216.0,
+						"translation.y": 936.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -314,15 +323,15 @@
 					"file": "PriorityQueue.lua",
 					"settings":
 					{
-						"buffer_size": 1613,
+						"buffer_size": 1614,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								286,
-								286
+								645,
+								645
 							]
 						],
 						"settings":
@@ -389,6 +398,34 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "level0.lua",
+					"settings":
+					{
+						"buffer_size": 2989,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								960,
+								960
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 156.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
 			]
 		}
@@ -426,7 +463,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 101.0
+		"height": 388.0
 	},
 	"replace":
 	{
