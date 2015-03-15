@@ -91,8 +91,13 @@ function loadTileset(data)
 	tileset.tiles = {}
 	for y = 0, sh do 
 		for x = 0, sw do
-			tileset.tiles[x + y * sw] = {}
-			tileset.tiles[x + y * sw].quad = love.graphics.newQuad(x * data.tilewidth, y * data.tileheight, data.tilewidth, data.tileheight, tileset.image:getWidth(), tileset.image:getHeight())
+			local idx = x + y * sw
+			tileset.tiles[idx] = {}
+			tileset.tiles[idx].quad = love.graphics.newQuad(x * data.tilewidth, y * data.tileheight, data.tilewidth, data.tileheight, tileset.image:getWidth(), tileset.image:getHeight())
+
+			-- default properties
+			tileset.tiles[idx].collision = nil
+			tileset.tiles[idx].cost = 1
 		end
 	end
 
@@ -102,14 +107,6 @@ function loadTileset(data)
 			tileset.tiles[tile.id].type = tile.properties["type"] -- type
 			tileset.tiles[tile.id].cost = tile.properties["cost"] -- cost
 		end
-
-		-- default property values
-		if tileset.tiles[tile.id].cost == nil then tileset.tiles[tile.id].cost = 1 end
-		print(tileset.tiles[tile.id].cost)
-		print(i)
-		-- use Tiled tile editor
-		-- start with nil, no collision
-		tileset.tiles[tile.id].collision = nil
 
 		-- just use one object per tile by now
 		if tile.objectGroup ~= nil and #tile.objectGroup.objects > 0 and tile.objectGroup.objects[1].shape == "rectangle" then
@@ -458,7 +455,7 @@ function Map:AStar(start, goal)
 					came_from[n] = current
 					score[n] = newScore
 					--print(score[n], self:heuristic(goal_idx, n))
-					q:push(n, score[n] + self:heuristic(goal_idx, n))
+					q:push(n, score[n] + self:heuristic(goal_idx, n) * self:tileCost(n))
 				end
 			end
 		end

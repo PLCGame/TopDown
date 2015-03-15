@@ -7,6 +7,15 @@ local map = nil
 local sprites = nil
 local path = nil
 local search = nil
+local start_tile = nil
+local end_tile = nil
+
+function computePath()
+	local reach = false
+	path,reach, search = map:AStar(start_tile, end_tile)
+
+	print(start_tile.x, start_tile.y, end_tile.x, end_tile.y)
+end
 
 function love.load()
 	map = Map.new(require("level0"), nil)
@@ -16,8 +25,25 @@ function love.load()
 
 	sprites = SpriteFrame.new(love.graphics.newImage("Sprite image.png"), love.graphics.newImage("Sprite mask.png"), love.graphics.newImage("Sprite mark.png"))
 
-	local reach = false
-	path,reach, search = map:AStar({x = 0, y = 0}, {x = 15, y = 15})
+	start_tile = {x=0, y=0}
+	end_tile = {x = 15,y = 15}
+
+	computePath()
+end
+
+function love.mousepressed(x, y, button)
+	-- make it in map coordinate
+	local mx = math.min(math.floor(x / map.tile_width), map.width - 1)
+	local my = math.min(math.floor(y / map.tile_height), map.height - 1)
+
+	print(button, x, y, mx, my)
+
+	if button == "l" then
+		end_tile.x = mx
+		end_tile.y = my
+	end
+
+	computePath()
 end
 
 function love.update(dt)
@@ -32,9 +58,10 @@ function love.draw()
 	end
 
 	for k,v in ipairs(search) do
-		love.graphics.print(v.priority, v.pos.x * map.tile_width + 8, v.pos.y * map.tile_height + 8)
+		local str = k
+		love.graphics.print(str, v.pos.x * map.tile_width + 8, v.pos.y * map.tile_height + 8)
 	end
 
 
-    love.graphics.print("Path finding A* test", 10, 10)
+    --love.graphics.print("Path finding A* test", 10, 10)
 end
