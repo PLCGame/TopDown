@@ -362,25 +362,52 @@ function Map:TileNeightbors(tile_idx)
 	local neightbors = {}
 	local p = self:IdxPoint(tile_idx)
 
+	local up = false
+	local down = false
+	local left = false
+	local right = false
+
 	-- up
 	if p.y - 1 >= 0 and self.backgroundTiles.tiles[self.backgroundMap[tile_idx - self.width]].collision == nil then
 		table.insert(neightbors, tile_idx - self.width)
+		up = true
 	end
 
-	-- bottom
+	-- down
 	if p.y + 1 < self.height and self.backgroundTiles.tiles[self.backgroundMap[tile_idx + self.width]].collision == nil then
 		table.insert(neightbors, tile_idx + self.width)
+		down = true
 	end
 
 	-- left
 	if p.x - 1 >= 0 and self.backgroundTiles.tiles[self.backgroundMap[tile_idx - 1]].collision == nil then
 		table.insert(neightbors, tile_idx - 1)
+		left = true
 	end
 
 	-- right
 	if p.x + 1 < self.width and self.backgroundTiles.tiles[self.backgroundMap[tile_idx + 1]].collision == nil then
 		table.insert(neightbors, tile_idx + 1)
+		right = true
 	end
+
+	if up and left and self.backgroundTiles.tiles[self.backgroundMap[tile_idx - 1 - self.width]].collision == nil then
+		table.insert(neightbors, tile_idx - 1 - self.width)
+	end
+
+	if down and left and self.backgroundTiles.tiles[self.backgroundMap[tile_idx - 1 + self.width]].collision == nil then
+		table.insert(neightbors, tile_idx - 1 + self.width)
+	end
+
+	if up and right and self.backgroundTiles.tiles[self.backgroundMap[tile_idx + 1 - self.width]].collision == nil then
+		table.insert(neightbors, tile_idx + 1 - self.width)
+	end
+
+	if down and right and self.backgroundTiles.tiles[self.backgroundMap[tile_idx + 1 + self.width]].collision == nil then
+		table.insert(neightbors, tile_idx + 1 + self.width)
+	end
+
+
 
 	if (p.x + p.y) % 2 == 1 then
 		-- reverse the order of neightbors
