@@ -8,7 +8,7 @@ function extractFrameFromImage(data, startX, startY)
 	r, g, b, a = data:getPixel(x, y)
 
 	-- the width
-	while x < data:getWidth() and r == 255 and b == 255 do 
+	while x < data:getWidth() and r == 1 and b == 1 do 
 		x = x + 1
 		r, g, b, a = data:getPixel(x, startY)
 	end
@@ -16,7 +16,7 @@ function extractFrameFromImage(data, startX, startY)
 	-- initial pixel
 	r, g, b, a = data:getPixel(startX, startY)
 	-- the height
-	while y < data:getHeight() and r == 255 and b == 255 do 
+	while y < data:getHeight() and r == 1 and b == 1 do 
 		y = y + 1
 		r, g, b, a = data:getPixel(startX, y)
 	end
@@ -61,12 +61,11 @@ function pixelIsMask(data, x, y)
 	-- else test pixel color
 	r, g, b, a = data:getPixel(x, y)
 
-	return r == 255 and g == 0 and b == 255
+	return r == 1 and g == 0 and b == 1
 end
 
 -- create frame from images
-function extractFramesFromImage(image)
-	data = image:getData()
+function extractFramesFromImage(data)
 	local frames = {}
 
 	for y = 0, data:getHeight() -1 do
@@ -81,7 +80,7 @@ function extractFramesFromImage(image)
 		end
 	end
 
-	table.sort(frames, frameSort )
+	table.sort(frames, frameSort)
 	return frames
 end
 
@@ -93,7 +92,7 @@ function extractMarkFromFrame(data, frame)
 	for y = frame.y, frame.y + frame.height do
 		for x = frame.x, frame.x + frame.width do
 			r, g, b, a = data:getPixel(x, y)
-			if a == 255 then
+			if a == 1 then
 				frame.xoffset = frame.x - x
 				frame.yoffset = frame.y - y
 			end
@@ -103,9 +102,7 @@ function extractMarkFromFrame(data, frame)
 	return frame
 end
 
-function extractMarksFromFrame(image, frames)
-	data = image:getData()
-
+function extractMarksFromFrame(data, frames)
 	for i, frame in ipairs(frames) do 
 		frame = extractMarkFromFrame(data, frame)
 	end
@@ -121,11 +118,11 @@ function SpriteFrame.new(spriteImage, maskImage, markImage)
 	-- create sprite
 	self.frames = {}
 	for i = 1, #frames do
-		--print("-------------------------------")
-		--print("Frame", i)
-		--print(frames[i].x, frames[i].y)
-		--print(frames[i].width, frames[i].height)
-		--print(frames[i].xoffset, frames[i].yoffset)	
+		print("-------------------------------")
+		print("Frame", i)
+		print(frames[i].x, frames[i].y)
+		print(frames[i].width, frames[i].height)
+		print(frames[i].xoffset, frames[i].yoffset)	
 
 		local spriteFrame = {}
 		spriteFrame.image = spriteImage

@@ -23,17 +23,21 @@ end
 function love.load()
 	map = Map.new(require("level0"), nil)
 
-	width, height = love.window.getDimensions()
+	width, height = love.graphics.getDimensions()
 	map:setSize(width, height)
 
-	sprites = SpriteFrame.new(love.graphics.newImage("Sprite image.png"), love.graphics.newImage("Sprite mask.png"), love.graphics.newImage("Sprite mark.png"))
+	sprites = SpriteFrame.new(love.graphics.newImage("Sprite image.png"), love.image.newImageData("Sprite mask.png"), love.image.newImageData("Sprite mark.png"))
 
 	start_tile = {x=0, y=0}
 	end_tile = {x = 15,y = 15}
 
 	computePath()
 
-	pawn = {sprite = sprites.frames[1], position = {x=0, y=0}}
+	pawn = {
+		sprite = sprites.frames[1], 
+		position = {x=0, y=0}
+	}
+
 	table.insert(scene_objects, pawn)
 end
 
@@ -47,7 +51,7 @@ function love.mousepressed(x, y, button)
 	start_tile.x = math.floor(pawn.position.x / map.tile_width)
 	start_tile.y = math.floor(pawn.position.y / map.tile_height)
 
-	if button == "l" then
+	if button == 1 then
 		end_tile.x = mx
 		end_tile.y = my
 	end
@@ -64,7 +68,7 @@ function love.update(dt)
 	local pos = pawn.position
 	local dest = path[#path]
 
-	print(dest.x, dest.y)
+	--print(dest.x, dest.y)
 
 	local _dest = {x=0, y=0}
 	_dest.x = (dest.x + 0.5) * map.tile_width

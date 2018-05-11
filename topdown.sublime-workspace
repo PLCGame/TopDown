@@ -99,8 +99,8 @@
 			"file": "main.lua",
 			"settings":
 			{
-				"buffer_size": 2632,
-				"line_ending": "Unix"
+				"buffer_size": 2649,
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -133,6 +133,14 @@
 			{
 				"buffer_size": 2100,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "level0.lua",
+			"settings":
+			{
+				"buffer_size": 3842,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -211,6 +219,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"sw",
 			"return",
 			"width",
 			"PlayerStates",
@@ -260,20 +269,19 @@
 					"file": "main.lua",
 					"settings":
 					{
-						"buffer_size": 2632,
+						"buffer_size": 2649,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1335,
-								1335
+								1468,
+								1468
 							]
 						],
 						"settings":
 						{
-							"spell_check": true,
 							"syntax": "Packages/Lua/Lua.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
@@ -295,8 +303,8 @@
 						"selection":
 						[
 							[
-								10414,
-								10414
+								10048,
+								10048
 							]
 						],
 						"settings":
@@ -306,7 +314,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4716.0,
+						"translation.y": 4064.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -323,8 +331,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								645,
+								645
 							]
 						],
 						"settings":
@@ -391,6 +399,34 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "level0.lua",
+					"settings":
+					{
+						"buffer_size": 3842,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 39.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
 			]
 		}
@@ -428,7 +464,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 101.0
+		"height": 88.0
 	},
 	"replace":
 	{

@@ -69,13 +69,13 @@ return {
         {
           id = 10,
           properties = {
-            ["cost"] = "40"
+            ["cost"] = "30"
           }
         },
         {
           id = 11,
           properties = {
-            ["cost"] = "150"
+            ["cost"] = "50"
           }
         }
       }
